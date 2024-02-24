@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeCo</title>
+    <link rel="stylesheet" type="text/css" href="recipecss.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <a href="myproject.html">내 프로젝트 목록</a>
+      <a href="newproject.html">새 프로젝트 생성</a>
+      <a href="projectmember.html">프로젝트 멤버</a>
+    </nav>
+    <form method="post" action="create.js">
+        <h3>어떤 종류의 프로젝트인가요?</h3>
+        <input type="radio" name="projtype" value="web">웹<br>
+        <input type="radio" name="projtype" value="app">앱<br>
+        <input type="radio" name="projtype" value="game">게임<br>
+        <h3>프로젝트의 제목은 무엇인가요?</h3>
+        <input type="text" name="title" placeholder="제목 입력" required><br>
+        <input type="submit" value="생성">
+    </form>
+  </body>
+</html>
