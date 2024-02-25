@@ -4,6 +4,20 @@
     <title>DeCo</title>
     <link rel="stylesheet" type="text/css" href="recipecss.css">
     <meta charset="UTF-8">
+    <script>
+    function getUsernameFromURL() {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("username");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var username = getUsernameFromURL();
+      if (username) {
+        var welcomeMessage = "안녕하세요, " + username + "님!";
+        document.getElementById("welcomeMessage").innerText = welcomeMessage;
+      }
+    });
+    </script>
   </head>
   <body>
     <nav>
@@ -12,29 +26,12 @@
       <a href="projectmember.html">프로젝트 멤버</a>
     </nav>
     <header>
+      <div id="welcomeMessage"></div>
       <h3>내 프로젝트 목록</h3>
     </header>
     <div style="float: left; width: 50%;">
       <img src="" width="400" height="300"/>
       <a href="projectname.html"><p><strong>프로젝트 이름</strong></p></a>
-      <p>한줄 설명</p>
-      <hr>
-    </div>
-    <div style="float: left; width: 50%;">
-      <img src="" width="400" height="300"/>
-      <p><strong>프로젝트 이름</strong></p>
-      <p>한줄 설명</p>
-      <hr>
-    </div>
-    <div style="float: left; width: 50%;">
-      <img src="" width="400" height="300"/>
-      <p><strong>프로젝트 이름</strong></p>
-      <p>한줄 설명</p>
-      <hr>
-    </div>
-    <div style="float: left; width: 50%;">
-      <img src="" width="400" height="300"/>
-      <p><strong>프로젝트 이름</strong></p>
       <p>한줄 설명</p>
       <hr>
     </div>

@@ -2,8 +2,50 @@
 <html>
   <head>
     <title>DeCo</title>
-    <link rel="stylesheet" type="text/css" href="recipecss.css">
+    <link rel="stylesheet" type="text/css" href="css.css">
     <meta charset="UTF-8">
+    <script>
+      function validateForm() {
+        var name = document.forms["signupForm"]["name"].value;
+        var id = document.forms["signupForm"]["id"].value;
+        var password = document.forms["signupForm"]["pwd"].value;
+        var tel = document.forms["signupForm"]["tel"].value;
+        var email = document.forms["signupForm"]["email"].value;
+
+        // 아이디와 비밀번호의 조건 확인
+        var idRegex = /^[a-z]{8,16}$/;
+        var passwordRegex = /^(?=.*[0-9])(?=.*[a-z])[a-z0-9]{8,16}$/;
+        var telRegex = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (name.trim() === "") {
+          alert("이름을 입력하세요.");
+          return false;
+        }
+
+        if (!idRegex.test(id)) {
+          alert("아이디는 영소문자 8~16자리여야 합니다.");
+          return false;
+        }
+
+        if (!passwordRegex.test(password)) {
+          alert("비밀번호는 숫자와 영소문자를 포함한 8~16자리여야 합니다.");
+          return false;
+        }
+
+        if (!telRegex.test(tel)) {
+          alert("전화번호의 형식이 올바르지 않습니다. (000-0000-0000)");
+          return false;
+        }
+
+        if (!emailRegex.test(email)) {
+          alert("이메일의 형식이 올바르지 않습니다.");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
   </head>
   <body>
     <nav>
@@ -14,12 +56,12 @@
     <header>
       <h3>DeCo의 회원이 되어 당신만의 프로젝트를 디자인하세요!</h3>
     </header>
-    <form method="post" action="signin.js">
+    <form name="signupForm" method="post" action="myproject.html" onsubmit="return validateForm()">
         이름 : <input type="text" name="name" required><br>
-        아이디 : <input type="text" name="id" required><br>
-        비밀번호 : <input type="text" name="pwd" placeholder="숫자,영소문자 8~16자리" required><br>
+        아이디 : <input type="text" name="id" placeholder="영소문자 8~16자리" required><br>
+        비밀번호 : <input type="password" name="pwd" placeholder="숫자,영소문자 8~16자리" required><br>
         전화번호 : <input type="tel" name="tel" placeholder="000-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required><br>
-        이메일 : <input type="text" name="email" required><br>
+        이메일 : <input type="email" name="email" required><br>
         <input type="submit" value="회원가입">
     </form>
   </body>
