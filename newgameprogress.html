@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeCo</title>
+    <link rel="stylesheet" type="text/css" href="recipecss.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <a href="newgameplan.html">기획</a>
+      <a href="newgameprogress.html">진행</a>
+      <a href="newgameresult.html">결과</a>
+      <a href="myproject.html">목록으로 돌아가기</a>
+    </nav>
+    <h3><u>프로젝트 제목</u></h3>
+    <form method="post" action="creategameprogress.js">
+        <h3>개발 파트</h3>
+        <ol>
+          <li><a href="#1">기획</a></li>
+          <li><a href="#2">디자인</a></li>
+          <li><a href="#3">개발</a></li>
+          <li><a href="#4">사운드</a></li>
+        </ol>
+        <hr>
+        <a id="1"></a><h3>기획 : <select name="part" size="1"></select></h3>
+        <ul>
+          <li><a href="week1.html">1주차</a></li>
+        </ul>
+        <hr>
+        <a id="2"></a><h3>디자인 : <select name="part" size="1"></select></h3>
+        <ul>
+          <li></li>
+        </ul>
+        <hr>
+        <a id="3"></a><h3>개발 : <select name="part" size="1"></select></h3>
+        <ul>
+          <li></li>
+        </ul>
+        <hr>
+        <a id="4"></a><h3>사운드 : <select name="part" size="1"></select></h3>
+        <ul>
+          <li></li>
+        </ul>
+        <input type="submit" value="저장">
+    </form>
+  </body>
+</html>

@@ -4,6 +4,30 @@
     <title>DeCo</title>
     <link rel="stylesheet" type="text/css" href="recipecss.css">
     <meta charset="UTF-8">
+    <script>
+      function redirectToPage() {
+        var projType = document.querySelector('input[name="projtype"]:checked').value;
+        var title = document.getElementById('title').value;
+        var destination;
+
+        switch (projType) {
+          case 'web':
+            destination = 'newwebplan.html';
+            break;
+          case 'app':
+            destination = 'newappplan.html';
+            break;
+          case 'game':
+            destination = 'newgameplan.html';
+            break;
+          default:
+            destination = 'newproject.html';
+            break;
+        }
+
+        window.location.href = destination + '?title=' + encodeURIComponent(title);
+      }
+    </script>
   </head>
   <body>
     <nav>
@@ -11,13 +35,13 @@
       <a href="newproject.html">새 프로젝트 생성</a>
       <a href="projectmember.html">프로젝트 멤버</a>
     </nav>
-    <form method="post" action="create.js">
+    <form onsubmit="redirectToPage(); return false;">
         <h3>어떤 종류의 프로젝트인가요?</h3>
         <input type="radio" name="projtype" value="web">웹<br>
         <input type="radio" name="projtype" value="app">앱<br>
         <input type="radio" name="projtype" value="game">게임<br>
         <h3>프로젝트의 제목은 무엇인가요?</h3>
-        <input type="text" name="title" placeholder="제목 입력" required><br>
+        <input type="text" id="title" name="title" placeholder="제목 입력" required><br>
         <input type="submit" value="생성">
     </form>
   </body>
