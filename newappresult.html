@@ -4,15 +4,37 @@
     <title>DeCo</title>
     <link rel="stylesheet" type="text/css" href="recipecss.css">
     <meta charset="UTF-8">
+    <script>
+      function getProjectTitle() {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("title");
+      }
+
+      function setProjectTitle() {
+        var title = getProjectTitle();
+        var projectTitleElement = document.getElementById("projectTitle");
+        if (title && projectTitleElement) {
+          projectTitleElement.innerText = title;
+        }
+      }
+
+      window.onload = setProjectTitle;
+
+      function redirectToPage(page) {
+        var title = getProjectTitle();
+        var destination = page + '?title=' + encodeURIComponent(title);
+        window.location.href = destination;
+      }
+    </script>
   </head>
   <body>
     <nav>
-      <a href="newappplan.html">기획</a>
-      <a href="newappprogress.html">진행</a>
-      <a href="newappresult.html">결과</a>
+      <a href="#" onclick="redirectToPage('newappplan.html')">기획</a>
+      <a href="#" onclick="redirectToPage('newappprogress.html')">진행</a>
+      <a href="#" onclick="redirectToPage('newappresult.html')">결과</a>
       <a href="myproject.html">목록으로 돌아가기</a>
     </nav>
-    <h3><u>프로젝트 제목</u></h3>
+    <h3><u id="projectTitle">프로젝트 제목</u></h3>
     <form method="post" action="createappresult.js">
         <h3>결과</h3>
         <textarea name="comment" cols="80" rows="4"></textarea><br>

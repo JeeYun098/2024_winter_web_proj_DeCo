@@ -10,6 +10,18 @@
         var title = document.getElementById('title').value;
         var destination;
 
+        var webPlanURL = 'newwebplan.html?title=' + encodeURIComponent(title);
+        var webProgressURL = 'newwebprogress.html?title=' + encodeURIComponent(title);
+        var webResultURL = 'newwebresult.html?title=' + encodeURIComponent(title);
+
+        var appPlanURL = 'newappplan.html?title=' + encodeURIComponent(title);
+        var appProgressURL = 'newappprogress.html?title=' + encodeURIComponent(title);
+        var appResultURL = 'newappresult.html?title=' + encodeURIComponent(title);
+
+        var gamePlanURL = 'newgameplan.html?title=' + encodeURIComponent(title);
+        var gameProgressURL = 'newgameprogress.html?title=' + encodeURIComponent(title);
+        var gameResultURL = 'newgameresult.html?title=' + encodeURIComponent(title);
+
         switch (projType) {
           case 'web':
             destination = 'newwebplan.html';
